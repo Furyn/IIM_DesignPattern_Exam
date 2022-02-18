@@ -30,9 +30,13 @@ public class HealthProxy : MonoBehaviour, IHealth
         remove => _health.OnDeath -= value;
     }
 
+    public event UnityAction<float> OnUpdateSliderHealth
+    {
+        add => _health.OnUpdateSliderHealth += value;
+        remove => _health.OnUpdateSliderHealth -= value;
+    }
+
     public void TakeDamage(int amount) => _health.TakeDamage(amount);
-
-    
-
+    public void Heal(int amount) => _health.TakeDamage(amount);
 
 }

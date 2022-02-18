@@ -10,10 +10,12 @@ public class PlayerInputDispatcher : MonoBehaviour
 
     [SerializeField] EntityMovement _movement;
     [SerializeField] EntityFire _fire;
+    [SerializeField] Health _health;
 
     [SerializeField] InputActionReference _pointerPosition;
     [SerializeField] InputActionReference _moveJoystick;
     [SerializeField] InputActionReference _fireButton;
+    [SerializeField] InputActionReference _defButton;
 
     Coroutine MovementTracking { get; set; }
 
@@ -23,17 +25,25 @@ public class PlayerInputDispatcher : MonoBehaviour
     {
         // binding
         _fireButton.action.started += FireInput;
+        
 
         _moveJoystick.action.started += MoveInput;
         _moveJoystick.action.canceled += MoveInputCancel;
+
+        _defButton.action.started += DefInput;
+        _defButton.action.canceled += DefInputEnd;
     }
 
     private void OnDestroy()
     {
         _fireButton.action.started -= FireInput;
+       
 
         _moveJoystick.action.started -= MoveInput;
         _moveJoystick.action.canceled -= MoveInputCancel;
+
+        _defButton.action.started -= DefInput;
+        _defButton.action.canceled -= DefInputEnd;
     }
 
     private void MoveInput(InputAction.CallbackContext obj)
@@ -67,6 +77,18 @@ public class PlayerInputDispatcher : MonoBehaviour
         {
             _fire.FireBullet(2);
         }
+    }
+
+    private void DefInput(InputAction.CallbackContext obj)
+    {
+        _health.def = true;
+        _fire.canFire = false;
+    }
+
+    private void DefInputEnd(InputAction.CallbackContext obj)
+    {
+        _health.def = false;
+        _fire.canFire = true;
     }
 
 }

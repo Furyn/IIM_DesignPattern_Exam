@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Def",
+                    "type": "Button",
+                    "id": "c513ef17-51c6-45a7-abe4-d2353d7f80a9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,7 +79,7 @@
                 {
                     "name": "up",
                     "id": "54b37601-7be6-4032-9d69-1499a56e03e7",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseControl",
@@ -92,7 +101,7 @@
                 {
                     "name": "left",
                     "id": "7cd175bc-74ce-421a-a754-477514f0f9dc",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseControl",
@@ -110,6 +119,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2a2a6e13-2961-43db-a4f7-288dfe34445e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseControl",
+                    "action": "Def",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
